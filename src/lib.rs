@@ -79,4 +79,24 @@ mod tests {
         assert_eq!((x0.abs() - (-0.3660254f64).abs() < 0.000001), true);
         assert_eq!((x1.abs() - (1.3660254f64).abs() < 0.000001), true);
     }
+
+    #[test]
+    fn parse_string_turbofish_happy_case_1() {
+        let q = "-2.0,2.0,1.0".parse::<Quadratic>().unwrap();
+        let (x0, x1) = q.solve();
+        //println!("{}", x0);
+        //println!("{}", x1);
+        assert_eq!((x0.abs() - (-0.3660254f64).abs() < 0.000001), true);
+        assert_eq!((x1.abs() - (1.3660254f64).abs() < 0.000001), true);
+    }
+
+    #[test]
+    fn parse_string_turbofish_happy_case_2() {
+        let q = "(-2.0,2.0,1.0)".parse::<Quadratic>().unwrap();
+        let (x0, x1) = q.solve();
+        //println!("{}", x0);
+        //println!("{}", x1);
+        assert_eq!((x0.abs() - (-0.3660254f64).abs() < 0.000001), true);
+        assert_eq!((x1.abs() - (1.3660254f64).abs() < 0.000001), true);
+    }
 }
